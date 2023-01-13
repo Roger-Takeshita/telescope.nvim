@@ -128,10 +128,10 @@ action_set.edit = function(prompt_bufnr, command)
   local entry = action_state.get_selected_entry()
 
   if not entry then
-    utils.notify("actions.set.edit", {
-      msg = "Nothing currently selected",
-      level = "WARN",
-    })
+    -- utils.notify("actions.set.edit", {
+    --   msg = "Nothing currently selected",
+    --   level = "WARN",
+    -- })
     return
   end
 

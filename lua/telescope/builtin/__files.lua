@@ -498,7 +498,7 @@ files.current_buffer_fuzzy_find = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Current Buffer Fuzzy",
+      prompt_title = "Search",
       finder = finders.new_table {
         results = lines_with_numbers,
         entry_maker = opts.entry_maker or make_entry.gen_from_buffer_lines(opts),
@@ -509,7 +509,9 @@ files.current_buffer_fuzzy_find = function(opts)
         action_set.select:enhance {
           post = function()
             local selection = action_state.get_selected_entry()
-            vim.api.nvim_win_set_cursor(0, { selection.lnum, 0 })
+            if selection then
+              vim.api.nvim_win_set_cursor(0, { selection.lnum, 0 })
+            end
           end,
         }
 

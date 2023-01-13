@@ -408,10 +408,10 @@ local function check_capabilities(feature, bufnr)
     return true
   else
     if #clients == 0 then
-      utils.notify("builtin.lsp_*", {
-        msg = "no client attached",
-        level = "INFO",
-      })
+      -- utils.notify("builtin.lsp_*", {
+      --   msg = "no client attached",
+      --   level = "INFO",
+      -- })
     else
       utils.notify("builtin.lsp_*", {
         msg = "server does not support " .. feature,
