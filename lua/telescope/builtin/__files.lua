@@ -503,7 +503,7 @@ files.current_buffer_fuzzy_find = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Current Buffer Fuzzy",
+      prompt_title = "Search",
       finder = finders.new_table {
         results = lines_with_numbers,
         entry_maker = opts.entry_maker or make_entry.gen_from_buffer_lines(opts),

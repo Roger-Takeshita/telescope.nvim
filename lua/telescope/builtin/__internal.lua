@@ -553,7 +553,7 @@ internal.oldfiles = function(opts)
 
   pickers
     .new(opts, {
-      prompt_title = "Oldfiles",
+      prompt_title = "History",
       finder = finders.new_table {
         results = results,
         entry_maker = opts.entry_maker or make_entry.gen_from_file(opts),

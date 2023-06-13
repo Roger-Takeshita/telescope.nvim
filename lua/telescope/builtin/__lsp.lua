@@ -366,17 +366,17 @@ local function check_capabilities(method, bufnr)
     end
   end
 
-  if #clients == 0 then
-    utils.notify("builtin.lsp_*", {
-      msg = "no client attached",
-      level = "INFO",
-    })
-  else
-    utils.notify("builtin.lsp_*", {
-      msg = "server does not support " .. method,
-      level = "INFO",
-    })
-  end
+  -- if #clients == 0 then
+  --   utils.notify("builtin.lsp_*", {
+  --     msg = "no client attached",
+  --     level = "INFO",
+  --   })
+  -- else
+  --   utils.notify("builtin.lsp_*", {
+  --     msg = "server does not support " .. method,
+  --     level = "INFO",
+  --   })
+  -- end
   return false
 end
 
