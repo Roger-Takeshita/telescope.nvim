@@ -920,7 +920,8 @@ end
 ---@field new_prefix string|table: either as string or { new_string, hl_group }
 ---@field reset_prompt bool: whether to reset the prompt
 ---@field multi MultiSelect: multi-selection to persist upon renewing finder (see telescope/pickers/multi.lua)
-function Picker:refresh(finder, opts)
+function Picker:refresh(finder, opts, callback)
+  callback = callback or function() end
   opts = opts or {}
   if opts.new_prefix then
     local handle = type(opts.new_prefix) == "table" and unpack or function(x)
@@ -941,6 +942,8 @@ function Picker:refresh(finder, opts)
   else
     self._on_lines(nil, nil, nil, 0, 1)
   end
+
+  callback(self.prompt_bufnr)
 end
 
 ---Set the selection to the provided `row`
