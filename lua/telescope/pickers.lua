@@ -8,6 +8,7 @@ local channel = require("plenary.async.control").channel
 local popup = require "plenary.popup"
 
 local actions = require "telescope.actions"
+local action_set = require "telescope.actions.set"
 local config = require "telescope.config"
 local debounce = require "telescope.debounce"
 local deprecated = require "telescope.deprecated"
@@ -944,6 +945,12 @@ function Picker:refresh(finder, opts, callback)
   end
 
   callback(self.prompt_bufnr)
+end
+
+---Set the selection to the provided `idx`
+---@param idx number
+function Picker:selection_idx(idx)
+  action_set.shift_selection(self.prompt_bufnr, idx)
 end
 
 ---Set the selection to the provided `row`
