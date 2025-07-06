@@ -962,7 +962,7 @@ internal.buffers = function(opts)
   end, vim.api.nvim_list_bufs())
 
   if not next(bufnrs) then
-    utils.notify("builtin.buffers", { msg = "No buffers found with the provided options", level = "INFO" })
+    -- utils.notify("builtin.buffers", { msg = "No buffers found with the provided options", level = "INFO" })
     return
   end
 
