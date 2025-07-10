@@ -771,12 +771,17 @@ local entry_to_qf = function(entry)
     end
   end
 
+  local filename = from_entry.path(entry, false, false) or ""
+  local root_path = vim.fn.getcwd()
+  local relative_path = vim.fn.fnamemodify(filename, ":." .. root_path)
+
   return {
     bufnr = entry.bufnr,
-    filename = from_entry.path(entry, false, false),
+    filename = filename,
     lnum = vim.F.if_nil(entry.lnum, 1),
     col = vim.F.if_nil(entry.col, 1),
-    text = text,
+    text = relative_path,
+    type = entry.qf_type,
   }
 end
 
