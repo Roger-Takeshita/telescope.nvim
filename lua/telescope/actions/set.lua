@@ -103,8 +103,14 @@ action_set.edit = function(prompt_bufnr, command)
     filename = entry.path or entry.filename
 
     -- TODO: Check for off-by-one
-    row = entry.row or entry.lnum
-    col = entry.col
+    local rownr = nil
+    local colnr = nil
+    if type(entry.value) == "table" then
+      rownr = entry.value.row
+      colnr = entry.value.col
+    end
+    row = rownr or entry.row or entry.lnum
+    col = colnr or entry.col
   elseif not entry.bufnr then
     -- TODO: Might want to remove this and force people
     -- to put stuff into `filename`
